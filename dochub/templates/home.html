@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <ul>
     {% for parent in parents %}
         <li>
@@ -7,3 +10,4 @@
         </li>
     {% endfor %}
 </ul>
+{% endblock %}

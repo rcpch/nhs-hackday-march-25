@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en-GB">
+  {% load static %}
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
+    <meta name="description"
+          content="National Paediatric Diabetes Audit Platform." />
+    <meta name="keywords" content="National Paediatric Diabetes Audit Platform" />
+    <meta name="author" content="RCPCH" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="latest_git_commit" content="{{ latest_git_commit }}" />
+    <title>National Paediatric Diabetes Audit Platform | RCPCH</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://unpkg.com/htmx.org@1.9.11/dist/htmx.js"
+            integrity="sha384-l9bYT9SL4CAW0Hl7pAOpfRc18mys1b0wK4U8UtGnWOxPVbVMgrOdB+jyz/WY8Jue"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/fontawesome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/solid.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/brands.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static 'tailwind.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body id="root">
+    {% csrf_token %}
+    {% block nav %}
+      {% include 'navbar/nav.html' %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% include 'navbar/footer.html' %}
+  </body>
+</html>
