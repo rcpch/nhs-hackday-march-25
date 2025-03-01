@@ -5,6 +5,16 @@ from django.contrib.gis.geos import Point
 
 ORGANISATIONS_BASE_URL = "https://rcpch-nhs-organisations.azurewebsites.net/"
 
+def fetch_local_health_boards():
+    request_url = f"{ORGANISATIONS_BASE_URL}/local_health_boards"
+
+    response = requests.get(request_url, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
+
+
 def add_local_health_boards():
     Parent = apps.get_model("dochub", "Parent")
 
@@ -13,9 +23,9 @@ def add_local_health_boards():
     response = requests.get(request_url, timeout=10)
     response.raise_for_status()
 
-    data = response.json()
+    lhb_data = response.json()
     
-    for lhb in data:
+    for lhb in lhb_data:
         Parent.objects.create(
             ods_code = lhb["ods_code"],
             name = lhb["name"],
