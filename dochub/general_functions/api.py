@@ -1,6 +1,22 @@
 import requests
 from django.conf import settings
 
+def fetch_integrated_care_boards():
+    request_url = f"{settings.ORGANISATIONS_BASE_URL}/integrated_care_boards"
+
+    response = requests.get(request_url, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
+def fetch_nhs_england_regions():
+    request_url = f"{settings.ORGANISATIONS_BASE_URL}/nhs_england_regions"
+
+    response = requests.get(request_url, timeout=10)
+    response.raise_for_status()
+
+    return response.json()
+
 def fetch_local_health_boards():
     request_url = f"{settings.ORGANISATIONS_BASE_URL}/local_health_boards"
 
