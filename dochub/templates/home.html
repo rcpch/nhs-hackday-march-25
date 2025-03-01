@@ -1,0 +1,9 @@
+<ul>
+    {% for parent in parents %}
+        <li>
+            <a href="/parent/{{parent.pk}}">
+                {{parent.name}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
