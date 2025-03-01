@@ -2,7 +2,7 @@ from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.contrib.gis.geos import Point
 
-from dochub.general_functions.api import fetch_local_health_boards, fetch_trusts, fetch_organisations
+from .seed_functions import seed_trusts, seed_organisations, seed_icbs, seed_nhsers, seed_lhbs
 
 
 
@@ -10,44 +10,36 @@ from dochub.general_functions.api import fetch_local_health_boards, fetch_trusts
 class Command(BaseCommand):
     help = "seed database with local health boards and trusts and their child organisations"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "-m",
+            "--mode",
+            type=str,
+            help="Mode - seed options to include: trusts, organisations",
+        )
+
     def handle(self, *args, **options):
-        Parent = apps.get_model("dochub", "Parent")
-        Organisation = apps.get_model("dochub", "Organisation")
+        if options["mode"] == 'local_health_boards':
+            seed_lhbs()
 
-        local_health_boards = fetch_local_health_boards()
-        trusts = fetch_trusts()
-        organisations = fetch_organisations()
+        if options["mode"] == 'nhs_england_regions':
+            seed_nhsers()
 
-        for lhb in local_health_boards:
-            Parent.objects.create(
-                ods_code = lhb["ods_code"],
-                name = lhb["name"],
-                welsh_name = lhb["welsh_name"],
-                # TODO SIMON!!! Which field should we use here?
-                # location_bng = Point(lhb["bng_e"], lhb["bng_n"])
-            )
+        if options["mode"] == 'icbs':
+            seed_icbs()
 
-        for trust in trusts:
-            # seems like there's some health boards in the trusts data
-            if not Parent.objects.filter(ods_code=trust["ods_code"]).exists():
-                Parent.objects.create(
-                    ods_code = trust["ods_code"],
-                    name = trust["name"]
-                )
+        if options["mode"] == "trusts":
+            seed_trusts()
         
-        for organisation in organisations:
-            if organisation["local_health_board"]:
-                parent_ods_code = organisation["local_health_board"]["ods_code"]
-            elif organisation["trust"]:
-                parent_ods_code = organisation["trust"]["ods_code"]
-            
-            print(f"!! {parent_ods_code}")
-            parent = Parent.objects.get(ods_code=parent_ods_code)
+        if options["mode"] == "organisations":
+            seed_organisations()
 
-            Organisation.objects.create(
-                ods_code = organisation["ods_code"],
-                name = organisation["name"],
-                # TODO SIMON!!! Which field should we use here?
-                # location_bng = Point(organisation["bng_e"], organisation["bng_n"]),
-                parent = parent
-            )
+        if options["mode"] == "all":
+            # update all the boundaries with correct codes
+            seed_lhbs()
+            seed_nhsers()
+            seed_icbs()
+            # add all the trusts
+            seed_trusts()
+            # add all the organisations and relationships with previous
+            seed_organisations()

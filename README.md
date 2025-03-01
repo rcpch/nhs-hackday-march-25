@@ -2,6 +2,20 @@
 
 An NHS Hackday project with some remarkable people to build a resource to take the pain out of Oriel, the matching scheme for new doctors looking for their first job.
 
+## To get started
+
+You need to have docker installed
+
+`s/up`
+
+This will create two containers - a django app and a postgres database. On first run it will seed all the boundary files for the geographies.
+
+In the console of the django app then:
+`python manage.py seed --mode=all`
+
+then navigate to:
+`http://localhost:8008`
+
 ## Resources used
 
 - [RCPCH NHS Organisation API](https://rcpch-nhs-organisations.azurewebsites.net/
