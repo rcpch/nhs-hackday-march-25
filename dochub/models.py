@@ -5,7 +5,10 @@ class Parent(models.Model):
 
     name = models.TextField()
 
-    welsh_name = models.TextField()
+    welsh_name = models.TextField(
+        null=True,
+        blank=True
+    )
 
     location_wgs = models.PointField(
         srid=27700,
@@ -25,11 +28,8 @@ class Parent(models.Model):
         blank=True,
     )
 
-    organisations = models.ForeignKey(
-        to="Organisation",
-        on_delete=models.CASCADE,
-        related_name="organisations",
-    )
+    def __str__(self):
+        return f"{self.name} [{self.ods_code}]"
 
 
 class Organisation(models.Model):
@@ -55,4 +55,10 @@ class Organisation(models.Model):
         srid=4326,
         null=True,
         blank=True,
+    )
+
+    parent = models.ForeignKey(
+        to="Parent",
+        on_delete=models.CASCADE,
+        related_name="organisations",
     )
