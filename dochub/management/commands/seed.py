@@ -1,35 +1,10 @@
-import requests
 from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.contrib.gis.geos import Point
 
-ORGANISATIONS_BASE_URL = "https://rcpch-nhs-organisations.azurewebsites.net/"
-
-def fetch_local_health_boards():
-    request_url = f"{ORGANISATIONS_BASE_URL}/local_health_boards"
-
-    response = requests.get(request_url, timeout=10)
-    response.raise_for_status()
-
-    return response.json()
+from dochub.general_functions.api import fetch_local_health_boards, fetch_trusts, fetch_organisations
 
 
-def fetch_trusts():
-    request_url = f"{ORGANISATIONS_BASE_URL}/trusts"
-
-    response = requests.get(request_url, timeout=10)
-    response.raise_for_status()
-
-    return response.json()
-
-
-def fetch_organisations():
-    request_url = f"{ORGANISATIONS_BASE_URL}/organisations"
-
-    response = requests.get(request_url, timeout=10)
-    response.raise_for_status()
-
-    return response.json()
 
 
 class Command(BaseCommand):

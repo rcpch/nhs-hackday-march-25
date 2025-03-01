@@ -1,18 +1,18 @@
 from django.shortcuts import render
-from ..models import Parent
+from ..models import LocalHealthBoard
 
 def home(request):
     template = "home.html"
     
     context = {
-        "parents": Parent.objects.all()
+        "parents": LocalHealthBoard.objects.all()
     }
 
     return render(request=request, template_name=template, context=context)
 
 
 def parent(request, pk):
-    parent = Parent.objects.get(pk=pk)
+    parent = LocalHealthBoard.objects.get(pk=pk)
 
     template = "parent.html"
     context = {
