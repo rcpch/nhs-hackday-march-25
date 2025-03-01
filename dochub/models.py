@@ -37,7 +37,10 @@ class Organisation(models.Model):
 
     name = models.TextField()
 
-    welsh_name = models.TextField()
+    welsh_name = models.TextField(
+        null=True,
+        blank=True
+    )
 
     location_wgs = models.PointField(
         srid=27700,
@@ -62,3 +65,6 @@ class Organisation(models.Model):
         on_delete=models.CASCADE,
         related_name="organisations",
     )
+
+    def __str__(self):
+        return f"{self.name} [{self.ods_code}]"
