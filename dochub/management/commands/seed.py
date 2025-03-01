@@ -45,6 +45,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         add_local_health_boards()
-        add_trusts()
+        # add_trusts()
 
         
