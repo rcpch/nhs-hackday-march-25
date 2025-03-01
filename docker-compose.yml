@@ -1,0 +1,45 @@
+x-global-environment: &global
+  env_file:
+    - envs/.env # env file - NOT committed to Git
+
+services:
+  # Caddy reverse proxy - web-facing SSL server
+  caddy:
+    <<: *global # this will inherit all the envs from x-global-environment
+    depends_on:
+      - django
+    image: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    volumes:
+      - dochub-caddy-data:/data/
+      - dochub-caddy-data:/config/
+      - ./Caddyfile:/etc/caddy/Caddyfile
+
+  # Django web application
+  django: &django
+    <<: *global # this will inherit all the envs from x-global-environment
+    build: .
+    image: dochub-django:built # build image and save for use by other containers
+    depends_on:
+      - postgis
+    volumes:
+      - .:/app/
+    command: s/start-dev
+    restart: always
+
+
+  # PostgreSQL with PostGIS extension
+  postgis:
+    <<: *global # this will inherit all the envs from x-global-environment
+    image: postgis/postgis:15-3.3
+    volumes:
+      - dochub-postgis-data:/var/lib/postgresql/data
+    restart: always
+
+
+volumes:
+  dochub-caddy-data:
+  dochub-postgis-data:
