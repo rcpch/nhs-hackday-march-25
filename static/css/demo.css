@@ -85,8 +85,9 @@ nav ul li a:hover {
     left: 250px;
     right: 0;
     height: 60px;
-    overflow: hidden;
+    z-index: 1000;  /* Increase the z-index */
 }
+
 
 .menu-icon {
     font-size: 24px;
