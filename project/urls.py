@@ -1,4 +1,7 @@
-import dochub.views
+from django.urls import path
+from dochub.views import home
+from dochub.views import organisation
+from dochub.views import detail
 
 """
 URL configuration for dochub project.
@@ -21,7 +24,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dochub.views.home),
-    path('parent/<int:pk>', dochub.views.parent),
-    path('details', dochub.views.detail)
+    path("", home, name="home"),
+    path("organisation/<int:pk>", organisation, name="organisation"),
+    path("details", detail, name="detail"),
 ]
