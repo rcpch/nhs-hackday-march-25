@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="w-full max-w-4xl mx-auto">
+    <article class="prose container my-10">
+        <div class="hero bg-base-200">
+        <div class="hero-content text-center flex-col">
+            <img src={% static "uhw.jpg" %} class="rounded-lg max-w-md" />
+            <h1 class="page-title">University Hospital of Wales</h1>
+        </div>
+        </div>
+
+        <div class="max-w-sm m-auto">
+    <div class="stats shadow-md border-lg my-10">
+        <div class="stat">
+            <div class="stat-title">Beds</div>
+            <div class="stat-value">1080</div>
+            <div class="stat-desc"><span class="badge badge-xs badge-success">Verified</span></div>
+        </div>
+        <div class="stat">
+            <div class="stat-title">Opened</div>
+            <div class="stat-value">1971</div>
+            <div class="stat-desc"></div>
+        </div>
+        <div class="stat">
+            <div class="stat-title">Trust/Board</div>
+            <div class="stat-value">CAVUHB</div>
+            <div class="stat-desc"></div>
+        </div>
+    </div>
+        </div>
+   
+    <div class="card card-border border-primary shadow-md">
+        <div class="card-body">
+            <h2 class="card-title">Specialities</h2>
+            <ul>
+                <li><b>Medical:</b> General Medicine, Cardiology, Respiratory, Endocrinology, and Nephrology</li>
+                <li><b>Surgical:</b> General Surgery, Urology, Orthopaedics, and Cardiothoracics</li>
+                <li><b>Other:</b> Emergency Medicine, Critical Care, Paediatrics, Obstetrics & Gynaecology, and Anaesthetics</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class=divider></div>
+
+    <div class="card card-border border-primary shadow-md ">
+        <div class="card-body">
+            <h2 class="card-title">Facilities</h2>
+            <ul class=columns-2>
+                <li>Enclosed Parking <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>Gym <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>On-site childcare</li>
+                <li>Cycle parking <span class="badge badge-xs badge-warning">Unverified</span></li>
+                <li>Hospital Accomodation</li>
+            </ul>
+
+            <div class="card-actions justify-end">
+                <button class="btn btn-outline">Suggest Update</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-border border-primary shadow-md my-5">
+        <div class="card-body">
+            <h2 class="card-title">Local Area</h2>
+            <ul class=columns-2>
+                <li>Good Public Transport <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>Nearby theatres & museums</li>
+                <li>Close to Primary & Secondary schools</li>
+            </ul>
+
+            <div class="card-actions justify-end">
+                <button class="btn btn-outline">Suggest Update</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class=divider></div>
+
+    <div class="card card-border border-primary shadow-md ">
+        <div class="card-body">
+            <h2 class="card-title">Job Role: Anaesthetics SHO</h2>
+            <ul class=columns-2>
+                <li>Resident On Call <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>Reserved weekly teaching time <span class="badge badge-xs badge-error">Disputed</span></li>
+                <li>Covers ITU <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>1 in 4 Weekend cover <span class="badge badge-xs badge-success">Verified</span><li>
+            </ul>
+
+            <div class=divider></div>
+            <div role="alert" class="alert alert-soft alert-info">
+            <p>✨ Colleagues recommend this department for its friendly and supportive atmosphere, as well as frequent teaching opportunities. However, some report not liking the frequent changes between day and night shifts as well as busy on call work in maternity.</p>
+            </div>
+
+
+            <div class="card-actions justify-end">
+                <button class="btn btn-outline">Suggest Update</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-border border-primary shadow-md my-5">
+        <div class="card-body">
+            <h2 class="card-title">National Training Survey - UHW Anaesthetics</h2>
+                <div class="stats justify-center">
+                    <div class="stat">
+                        <div class="stat-title">Overall Satisfaction</div>
+                        <div class="stat-value">81.5</div>
+                        <div class="stat-desc"></div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Teamwork</div>
+                        <div class="stat-value text-success">72.3</div>
+                        <div class="stat-desc">Above average</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Clinical Supervision</div>
+                        <div class="stat-value text-success">94.6</div>
+                        <div class="stat-desc">Above avergage</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Workload</div>
+                        <div class="stat-value text-error">52.2</div>
+                        <div class="stat-desc">Below average</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title">Educational Opportunities</div>
+                        <div class="stat-value">83.2</div>
+                        <div class="stat-desc"></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    </article>
+</div>
+
+{% endblock %}

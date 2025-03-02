@@ -20,3 +20,8 @@ def parent(request, pk):
     }
 
     return render(request=request, template_name=template, context=context)
+
+def detail(request):
+
+    template="detail.html"
+    return render(request=request, template_name=template)

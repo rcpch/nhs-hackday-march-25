@@ -22,5 +22,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dochub.views.home),
-    path('parent/<int:pk>', dochub.views.parent)
+    path('parent/<int:pk>', dochub.views.parent),
+    path('details', dochub.views.detail)
 ]
