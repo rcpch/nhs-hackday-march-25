@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.gis.geos import Point
 
 from .seed_functions import seed_trusts, seed_organisations, seed_icbs, seed_nhsers, seed_lhbs
-
+from ...general_functions import import_gmc_data
 
 
 
@@ -33,6 +33,10 @@ class Command(BaseCommand):
         
         if options["mode"] == "organisations":
             seed_organisations()
+
+        if options["mode"] == "gmc":
+            # seed the GMC data
+            import_gmc_data()
 
         if options["mode"] == "all":
             # update all the boundaries with correct codes

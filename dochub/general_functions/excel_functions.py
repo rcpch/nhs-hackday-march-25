@@ -20,8 +20,8 @@ def import_gmc_data():
     df = pd.read_excel(file_path)
 
     # import the data into django model
-    GMC = apps.get_model('general_functions', 'GMC')
-    Organisation = apps.get_model('general_functions', 'Organisation')
+    GMC = apps.get_model('dochub', 'GMC')
+    Organisation = apps.get_model('dochub', 'Organisation')
 
     # column names
     headers = ['#Geo_LETB_Deanery', 'Post_Specialty', 'Trust_Board', 'Site', 'Indicator', 'Year', 'Outcome', 'Response_Rate', 'Mean', 'CI_Lower', 'CI_Upper', 'N_Range', 'Benchmark_Name', 'National_Mean', 'National_Min', 'National_Q1', 'National_Median', 'National_Q3', 'National_Max', 'National_CI_Lower', 'National_CI_Upper', 'National_N']

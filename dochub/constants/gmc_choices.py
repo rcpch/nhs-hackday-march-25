@@ -62,58 +62,58 @@ POST_SPECIALITY_CHOICES = (
     (26, 'Infectious diseases'),
     (27, 'Intensive care medicine'),
     (28, 'Interventional Radiology'),
-    (29, 'Medical microbiology',) 
+    (29, 'Medical microbiology'), 
     (30, 'Medical oncology'),
-    (31, 'Medical psychotherapy',) 
-    (32, 'Neonatal Medicine',) 
+    (31, 'Medical psychotherapy'), 
+    (32, 'Neonatal Medicine'), 
     (33, 'Neurology'),
-    (34, 'Neurosurgery',) 
+    (34, 'Neurosurgery'), 
     (35, 'Obstetrics and gynaecology'),
-    (36, 'Occupational medicine',) 
-    (37, 'Old age psychiatry',) 
+    (36, 'Occupational medicine'), 
+    (37, 'Old age psychiatry'), 
     (38, 'Ophthalmology'),
-    (39, 'Oral and maxillo-facial surgery',) 
+    (39, 'Oral and maxillo-facial surgery'), 
     (40, 'Otolaryngology'),
     (41, 'Paediatric Emergency Medicine'),
-    (42, 'Paediatric Intensive Care Medicine',) 
+    (42, 'Paediatric Intensive Care Medicine'), 
     (43, 'Paediatric Nephrology'),
-    (44, 'Paediatric Respiratory Medicine',) 
+    (44, 'Paediatric Respiratory Medicine'), 
     (45, 'Paediatric cardiology'),
-    (46, 'Paediatric surgery',) 
-    (47, 'Paediatrics',) 
+    (46, 'Paediatric surgery'), 
+    (47, 'Paediatrics'), 
     (48, 'Palliative medicine'),
-    (49, 'Plastic surgery',) 
+    (49, 'Plastic surgery'), 
     (50, 'Psychiatry of learning disability'),
-    (51, 'Rehabilitation medicine',) 
+    (51, 'Rehabilitation medicine'), 
     (52, 'Renal medicine'),
-    (53, 'Respiratory Medicine',) 
+    (53, 'Respiratory Medicine'), 
     (54, 'Rheumatology'),
-    (55, 'Sport and exercise medicine',) 
+    (55, 'Sport and exercise medicine'),
     (56, 'Stroke Medicine'),
-    (57, 'Trauma and orthopaedic surgery',) 
-    (58, 'Urology', 'Vascular surgery'),
-    (59, 'Allergy',) 
+    (57, 'Trauma and orthopaedic surgery'), 
+    (58, 'Urology'),
+    (59, 'Allergy'), 
     (60, 'Clinical neurophysiology'),
-    (61, 'Clinical pharmacology and therapeutics',) 
+    (61, 'Clinical pharmacology and therapeutics'), 
     (62, 'Hepatology'),
-    (63, 'Liaison Psychiatry',) 
-    (64, 'Medical ophthalmology',) 
+    (63, 'Liaison Psychiatry'), 
+    (64, 'Medical ophthalmology'), 
     (65, 'Medical virology'),
-    (66, 'Nuclear medicine',) 
+    (66, 'Nuclear medicine'), 
     (67, 'Paediatric Diabetes and Endocrinology'),
-    (68, 'Paediatric Neurology',) 
+    (68, 'Paediatric Neurology'), 
     (69, 'Paediatric Oncology'),
-    (70, 'Paediatric and perinatal pathology',) 
+    (70, 'Paediatric and perinatal pathology'), 
     (71, 'Public health medicine'),
-    (72, 'Addiction Psychiatry',) 
+    (72, 'Addiction Psychiatry'), 
     (73, 'Gynaecological Oncology'),
-    (74, 'Rehabilitation Psychiatry',) 
+    (74, 'Rehabilitation Psychiatry'), 
     (75, 'Diagnostic neuropathology'),
     (76, 'Maternal and Fetal Medicine'),
     (77, 'Paediatric Gastroenterology, Hepatology and Nutrition'),
     (78, 'Paediatric Immunology, Infectious Diseases and Allergy'),
     (79, 'Paediatric Neurodisability'),
-     (80, 'Paediatric Palliative Medicine'),
+    (80, 'Paediatric Palliative Medicine'),
     (81, 'Forensic histopathology'),
     (82, 'Paediatric Inherited Metabolic Medicine'),
     (83, 'Paediatric Rheumatology'), 
@@ -135,4 +135,5 @@ POST_SPECIALITY_CHOICES = (
     (99, 'All Paediatrics and Child Health Posts'),
     (100, 'All Obstetrics and Gynaecology Posts'),
     (101, 'All Emergency Medicine Posts'),
+    (102, 'Vascular surgery')
 )
