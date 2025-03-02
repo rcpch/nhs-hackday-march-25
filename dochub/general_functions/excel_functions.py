@@ -3,7 +3,7 @@ import pandas as pd
 from django.conf import settings
 from django.apps import apps
 
-from ..constants import INDICATOR_CHOICES, BENCHMARK_CHOICES
+from ..constants import INDICATOR_CHOICES, BENCHMARK_CHOICES, POST_SPECIALITY_CHOICES
 
 def import_gmc_data():
     """
@@ -36,12 +36,16 @@ def import_gmc_data():
 
         # get the specialty
         post_specialty = post_specialty.strip()
+        post_specialty = [choice[0] for choice in POST_SPECIALITY_CHOICES if choice[1] == post_specialty][0]
         # get the key of the indicator
-        indicator = [choice[0] for choice in INDICATOR_CHOICES if choice[1] == indicator][0]
+        indicator = [choice[0] for choice in INDICATOR_CHOICES if choice[1] == indicator]
+        indicator = indicator[0] if indicator else None
+        
         # get the key of the benchmark
-        benchmark_name = [choice[0] for choice in BENCHMARK_CHOICES if choice[1] == benchmark_name][0]
+        benchmark_name = benchmark_name.strip()
+        benchmark_name = [choice[0] for choice in BENCHMARK_CHOICES if choice[1] == benchmark_name.strip()][0]
 
-        site_ods_code=site.split('-')[1]
+        site_ods_code=site.split('-')[1].strip()
         try:
             organisation = Organisation.objects.get(ods_code=site_ods_code)
         except Organisation.DoesNotExist:
@@ -52,7 +56,6 @@ def import_gmc_data():
         GMC.objects.create(
             deanery_name=deanery_name,
             post_specialty=post_specialty,
-            trust_board=trust_board,
             indicator=indicator,
             year=year,
             outcome=outcome,

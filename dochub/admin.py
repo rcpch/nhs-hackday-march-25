@@ -34,3 +34,9 @@ class CountryAdmin(admin.ModelAdmin):
 @admin.register(GMC)
 class GMCAdmin(admin.ModelAdmin):
     pass
+
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
