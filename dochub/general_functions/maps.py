@@ -159,7 +159,7 @@ def generate_choropleth_map(
             geojson=geojson_data,
             locations=abstraction_level_ids,
             featureidkey=f"properties.{properties}",
-            colorscale="viridis",
+            colorscale=[[0, "green"], [1, "lightgreen"]],
             z=[0] * len(abstraction_level_ids),
             marker_line_width=2,  # Set the width of the boundaries
             marker_line_color='red',  # Set the color of the boundaries

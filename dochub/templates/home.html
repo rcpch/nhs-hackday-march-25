@@ -4,15 +4,12 @@
 {% block content %}
 <div class="flex flex-col items-center justify-center">
     
-    <div class="text-lg flex justify-center">
-        <a href="{% url 'detail'  %}">{{organisation.name}}</a>
-    </div>
     <div class="dropdown dropdown-hover m-5">
         
         <div tabindex="0" role="button" class="btn m-1">Select an organisation to match to!</div>
         <ul 
         tabindex="0" 
-        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm overflow-auto h-64"
         >
         {% csrf_token %}
         {% for organisation in organisations %}
@@ -25,6 +22,7 @@
                              hx-target="#lhb_map"
                              hx-trigger="click"
                              hx-swap="innerHTML"
+                             hx-indicator="#spinner"
                             >{{ organisation.name }}</button>
                     </li>
                 {% endfor %}
@@ -34,4 +32,18 @@
 <div id="lhb_map" >
     {% include 'map.html' with map=map  %}
 </div>
+<!-- Spinner -->
+<div id="spinner" class="hidden fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+    <div class="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500"></div>
+</div>
+
+<script>
+    document.addEventListener('htmx:configRequest', function(event) {
+        document.getElementById('spinner').classList.remove('hidden');
+    });
+
+    document.addEventListener('htmx:afterRequest', function(event) {
+        document.getElementById('spinner').classList.add('hidden');
+    });
+</script>
 {% endblock %}

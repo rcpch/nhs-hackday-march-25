@@ -1,8 +1,10 @@
-
-                        <div 
-
-                            style="width:100%;height:600px;"
-                            _='init js 
-                                var lhb_plotly_map = {{ map|safe }}; 
-                                Plotly.newPlot("lhb_map", lhb_plotly_map.data, lhb_plotly_map.layout);
-                                end'></div>
+<div class="text-lg flex justify-center">
+    <a href="{% url 'detail'  %}">{{organisation.name}}</a>
+</div>
+<div 
+    style="width:100%;height:600px;"
+    _='init js 
+        var lhb_plotly_map = {{ map|safe }}; 
+        Plotly.newPlot("lhb_map", lhb_plotly_map.data, lhb_plotly_map.layout);
+        end'>
+</div>
