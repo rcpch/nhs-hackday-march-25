@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
 
-<div class="w-full max-w-4xl mx-auto">
-    <article class="prose container my-10">
+<div class="w-full justify-content max-w-4xl mx-auto">
+    <article class="prose my-10">
         <div class="hero bg-base-200">
         <div class="hero-content text-center flex-col">
             <img src={% static "uhw.jpg" %} class="rounded-lg max-w-md" />
@@ -16,7 +16,7 @@
         <div class="stat">
             <div class="stat-title">Beds</div>
             <div class="stat-value">1080</div>
-            <div class="stat-desc"><span class="badge badge-xs badge-success">Verified</span></div>
+            <div class="stat-desc"></div>
         </div>
         <div class="stat">
             <div class="stat-title">Opened</div>
@@ -44,6 +44,7 @@
 
     <div class=divider></div>
 
+    <div class=columns-2>
     <div class="card card-border border-primary shadow-md ">
         <div class="card-body">
             <h2 class="card-title">Facilities</h2>
@@ -53,11 +54,8 @@
                 <li>On-site childcare</li>
                 <li>Cycle parking <span class="badge badge-xs badge-warning">Unverified</span></li>
                 <li>Hospital Accomodation</li>
+                <li>Overnight catering</li>
             </ul>
-
-            <div class="card-actions justify-end">
-                <button class="btn btn-outline">Suggest Update</button>
-            </div>
         </div>
     </div>
 
@@ -65,17 +63,23 @@
         <div class="card-body">
             <h2 class="card-title">Local Area</h2>
             <ul class=columns-2>
-                <li>Good Public Transport <span class="badge badge-xs badge-success">Verified</span></li>
-                <li>Nearby theatres & museums</li>
-                <li>Close to Primary & Secondary schools</li>
+                <li>Public Transport <span class="badge badge-xs badge-success">Verified</span></li>
+                <li>Green spaces</li>
+                <li>Nearby schools</li>
             </ul>
 
-            <div class="card-actions justify-end">
-                <button class="btn btn-outline">Suggest Update</button>
+
+            <div class="columns-2">
+            <ul>
+                <li><a href="/" class=link-primary>Removals companies</a></li>
+                <li><a href="/" class=link-primary>Housing</a></li>
+                <li><a href="/" class=link-primary>Visit Cardiff</a></li>
+            </ul>
             </div>
         </div>
     </div>
 
+    </div>
 
     <div class=divider></div>
 
@@ -86,17 +90,13 @@
                 <li>Resident On Call <span class="badge badge-xs badge-success">Verified</span></li>
                 <li>Reserved weekly teaching time <span class="badge badge-xs badge-error">Disputed</span></li>
                 <li>Covers ITU <span class="badge badge-xs badge-success">Verified</span></li>
-                <li>1 in 4 Weekend cover <span class="badge badge-xs badge-success">Verified</span><li>
+                <li>1 in 4 Weekends <span class="badge badge-xs badge-success">Verified</span><li>
+                <li>Not split site <span class="badge badge-xs badge-success">Verified</span><li>
             </ul>
 
             <div class=divider></div>
             <div role="alert" class="alert alert-soft alert-info">
             <p>✨ Colleagues recommend this department for its friendly and supportive atmosphere, as well as frequent teaching opportunities. However, some report not liking the frequent changes between day and night shifts as well as busy on call work in maternity.</p>
-            </div>
-
-
-            <div class="card-actions justify-end">
-                <button class="btn btn-outline">Suggest Update</button>
             </div>
         </div>
     </div>
@@ -132,6 +132,12 @@
                     </div>
                 </div>
         </div>
+    </div>
+
+    <p>Do you work in staffing at <span class=text-primary>University Hospital of Wales</span>? To adopt this page and keep it up to date click below! If you have experiencing of working in <span class=text-primary>Anaesthetics</span> at <span class=text-primary>University Hospital of Wales</span> please suggest updates to this page.</p>
+    <div class="justify-content items-center py-5 mx-auto">
+    <button class="btn btn-primary">Adopt</button>
+    <button class="btn btn-accent">Suggest Update</button>
     </div>
 
     </article>
