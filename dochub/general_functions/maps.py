@@ -97,44 +97,6 @@ def generate_choropleth_map(
     abstraction_level_ids = [feature["properties"][properties] for feature in features]
     abstraction_level_names = [feature["properties"]["name"] for feature in features]
 
-    # Create a Plotly map using the GeoJSON data, data, and color data
-    fig = go.Figure(
-        go.Choroplethmapbox(
-            geojson=geojson_data,
-            locations=abstraction_level_ids,
-            featureidkey=f"properties.{properties}",
-            colorscale="Viridis",  # Set the color scale
-            marker_line_width=1,  # Set the width of the boundaries
-            marker_line_color="#000000",  # Set the color of the boundaries
-            customdata=abstraction_level_names,
-            hovertemplate="<b>%{customdata}</b><extra></extra>",  # Custom hovertemplate
-        )
-    )
-
-    # centre the map on the lead organisation
-    fig.update_layout(
-        mapbox_style="carto-positron",
-        mapbox_center={
-            "lat": organisation.latitude,
-            "lon": organisation.longitude,
-        },
-        hoverlabel=dict(
-            bgcolor="#FFFFFF",
-            font_size=16,
-            font_family="Montserrat-Regular",
-        ),
-        font=dict(family="Montserrat-Regular", size=12, color="black"),
-    )
-
-    # Make hover label pink and montserrat
-    fig.update_traces(
-        hoverlabel=dict(
-            bgcolor="#FFFFFF",
-            font_size=16,
-            font_family="Montserrat-Regular",
-        )
-    )
-
     # Add a layer for the region to highlight
     if abstraction_level == EnumAbstractionLevel.NHS_ENGLAND_REGION:
         identifier = "nhs_england_region"
@@ -158,11 +120,85 @@ def generate_choropleth_map(
     organisation_region = getattr(organisation, identifier)
     organisation_region_identifier = getattr(organisation_region, properties)
 
+    df = pd.DataFrame(columns=["identifier", "name", "organisations"])
+
+    level_abstraction_members, identifier = all_level_of_abstraction_members(
+        abstraction_level=abstraction_level
+    )
+
+    for member in level_abstraction_members:
+        
+        list_of_organisations_within_member = (
+            all_organisations_within_a_level_of_abstraction(
+                abstraction_level=abstraction_level, abstraction_level_member=member
+            )
+        )
+        df = pd.concat(
+                [
+                    df,
+                    pd.DataFrame(
+                        [
+                            {
+                                "identifier": getattr(member, identifier),
+                                "name": getattr(member, "name"),
+                                "organisations": list_of_organisations_within_member,
+                            }
+                        ]
+                    ),
+                ],
+                ignore_index=True,
+            )
+        
+    highlighted_region = df[
+        df["identifier"] == organisation_region_identifier
+    ]
+
+    # Create a Plotly map using the GeoJSON data, data, and color data
+    fig = go.Figure(
+        go.Choroplethmapbox(
+            geojson=geojson_data,
+            locations=abstraction_level_ids,
+            featureidkey=f"properties.{properties}",
+            colorscale="viridis",
+            z=[0] * len(abstraction_level_ids),
+            marker_line_width=2,  # Set the width of the boundaries
+            marker_line_color='red',  # Set the color of the boundaries
+            customdata=abstraction_level_names,
+            hovertemplate="<b>%{customdata}</b><extra></extra>",  # Custom hovertemplate
+        )
+    )
+
+    # centre the map on the lead organisation
+    fig.update_layout(
+        mapbox_style="carto-positron",
+        mapbox_center={
+            "lat": organisation.latitude,
+            "lon": organisation.longitude,
+        },
+        hoverlabel=dict(
+            bgcolor="red",
+            font_size=16,
+            font_family="Montserrat-Regular",
+        ),
+        font=dict(family="Montserrat-Regular", size=12, color="black"),
+    )
+
+    # Make hover label pink and montserrat
+    fig.update_traces(
+        hoverlabel=dict(
+            bgcolor="#FFFFFF",
+            font_size=16,
+            font_family="Montserrat-Regular",
+        )
+    )
+
     fig.add_trace(
         go.Choroplethmapbox(
             geojson=geojson_data,
-            marker_line_color="#000000",  # Set the outline color
+            marker_line_color="red",  # Set the outline color
             marker_line_width=3,  # Set the outline width
+            locations=highlighted_region["identifier"],
+             colorscale=[[0, "lightblue"], [1, "blue"]], 
         )
     )
 
@@ -174,7 +210,7 @@ def generate_choropleth_map(
             mode="markers",
             marker=go.scattermapbox.Marker(
                 size=12,
-                color="#000000",  # Set the color of the point
+                color="red",  # Set the color of the point
             ),
             text=[organisation.name],  # Set the hover text for the point
             hovertemplate="%{text}<extra></extra>",  # Custom hovertemplate

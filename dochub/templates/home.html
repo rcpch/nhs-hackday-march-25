@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% csrf_token%}
 {% load static %}
 {% block content %}
 <div class="flex flex-col items-center justify-center">
@@ -7,17 +8,27 @@
         <a href="{% url 'detail'  %}">{{organisation.name}}</a>
     </div>
     <div class="dropdown dropdown-hover m-5">
-        <form method="post" action="{% url 'home' %}">
-            {% csrf_token %}
-            <div tabindex="0" role="button" class="btn m-1">Select an organisation to match to!</div>
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                {% for organisation in organisations %}
-                    <li>
-                        <button type="submit" name="organisation_id" value="{{ organisation.pk }}" class="w-full text-left">{{ organisation.name }}</button>
+        
+        <div tabindex="0" role="button" class="btn m-1">Select an organisation to match to!</div>
+        <ul 
+        tabindex="0" 
+        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+        >
+        {% csrf_token %}
+        {% for organisation in organisations %}
+        <li>
+                        <button 
+                            type="button" 
+                             class="w-full text-left"
+                             hx-post="{% url 'organisation' organisation.pk %}"
+                             hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                             hx-target="#lhb_map"
+                             hx-trigger="click"
+                             hx-swap="innerHTML"
+                            >{{ organisation.name }}</button>
                     </li>
                 {% endfor %}
             </ul>
-        </form>
     </div>
 </div>
 <div id="lhb_map" >
