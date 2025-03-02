@@ -79,35 +79,35 @@ POST_SPECIALITY_CHOICES = (
     (43, 'Paediatric Nephrology'),
     (44, 'Paediatric Respiratory Medicine',) 
     (45, 'Paediatric cardiology'),
-    (46, 'Paediatric surgery',) 
-    (47, 'Paediatrics',) 
+    (46, 'Paediatric surgery'), 
+    (47, 'Paediatrics'), 
     (48, 'Palliative medicine'),
-    (49, 'Plastic surgery',) 
+    (49, 'Plastic surgery'), 
     (50, 'Psychiatry of learning disability'),
-    (51, 'Rehabilitation medicine',) 
+    (51, 'Rehabilitation medicine'), 
     (52, 'Renal medicine'),
-    (53, 'Respiratory Medicine',) 
+    (53, 'Respiratory Medicine'), 
     (54, 'Rheumatology'),
-    (55, 'Sport and exercise medicine',) 
+    (55, 'Sport and exercise medicine'),
     (56, 'Stroke Medicine'),
-    (57, 'Trauma and orthopaedic surgery',) 
+    (57, 'Trauma and orthopaedic surgery'), 
     (58, 'Urology', 'Vascular surgery'),
     (59, 'Allergy',) 
     (60, 'Clinical neurophysiology'),
-    (61, 'Clinical pharmacology and therapeutics',) 
+    (61, 'Clinical pharmacology and therapeutics'), 
     (62, 'Hepatology'),
-    (63, 'Liaison Psychiatry',) 
-    (64, 'Medical ophthalmology',) 
+    (63, 'Liaison Psychiatry'), 
+    (64, 'Medical ophthalmology'), 
     (65, 'Medical virology'),
-    (66, 'Nuclear medicine',) 
+    (66, 'Nuclear medicine'), 
     (67, 'Paediatric Diabetes and Endocrinology'),
-    (68, 'Paediatric Neurology',) 
+    (68, 'Paediatric Neurology'), 
     (69, 'Paediatric Oncology'),
-    (70, 'Paediatric and perinatal pathology',) 
+    (70, 'Paediatric and perinatal pathology'), 
     (71, 'Public health medicine'),
-    (72, 'Addiction Psychiatry',) 
+    (72, 'Addiction Psychiatry'), 
     (73, 'Gynaecological Oncology'),
-    (74, 'Rehabilitation Psychiatry',) 
+    (74, 'Rehabilitation Psychiatry'), 
     (75, 'Diagnostic neuropathology'),
     (76, 'Maternal and Fetal Medicine'),
     (77, 'Paediatric Gastroenterology, Hepatology and Nutrition'),
