@@ -158,14 +158,9 @@ def generate_choropleth_map(
     organisation_region = getattr(organisation, identifier)
     organisation_region_identifier = getattr(organisation_region, properties)
 
-    highlighted_region = dataframe[
-        dataframe["identifier"] == organisation_region_identifier
-    ]
-
     fig.add_trace(
         go.Choroplethmapbox(
             geojson=geojson_data,
-            locations=highlighted_region["identifier"],
             marker_line_color="#000000",  # Set the outline color
             marker_line_width=3,  # Set the outline width
         )

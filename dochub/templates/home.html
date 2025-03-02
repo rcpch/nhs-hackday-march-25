@@ -1,15 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<ul>
-    {% for parent in parents %}
-        <li>
-            <a href="/parent/{{parent.pk}}">
-                {{parent.name}}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
 <div 
                             id="lhb_map" 
                             style="width:100%;height:600px;"
