@@ -37,11 +37,16 @@
       {% include 'navbar/navdemo.html' %}
     {% endblock %}
 
-    {% block sidebar %}
-          {% include 'navbar/sidebarDemo.html' %}
-    {% endblock %}
+    <div class="container">
+        {% block sidebar %}
+            {% include 'navbar/sidebarDemo.html' %}
+        {% endblock %}
     
-    {% block content %}{% endblock %}
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
     {% include 'navbar/footer.html' %}
   </body>
 </html>
