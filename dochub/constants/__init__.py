@@ -1,3 +1,3 @@
-from .gmc_choices import BENCHMARK_CHOICES, INDICATOR_CHOICES
+from .gmc_choices import INDICATOR_CHOICES, POST_SPECIALITY_CHOICES
 from .integrated_care_boards import INTEGRATED_CARE_BOARDS
 from .nhs_england_regions import NHS_ENGLAND_REGIONS

@@ -1,3 +1,18 @@
+BENCHMARK_CHOICES = (
+    (0, 'All General Practice Posts'), 
+    (1, 'All Psychiatry Posts'),
+    (2, 'All Medicine Posts'), 
+    (3, 'All Anaesthetists Posts'),
+    (4, 'All Surgery Posts'), 
+    (5, 'All Pathology Posts', 'All Radiology Posts'),
+    (6, 'All Paediatrics and Child Health Posts'),
+    (7, 'All Obstetrics and  Gynaecology Posts'),
+    (8, 'All Emergency Medicine Posts'), 
+    (9, 'All Occupational Medicine Posts'),
+    (10, 'All Ophthalmology Posts'), 
+    (11, 'All Public Health Posts')
+)
+
 INDICATOR_CHOICES = (
     (1, 'Supportive Environment'),
     (2, 'Feedback'),
@@ -17,7 +32,7 @@ INDICATOR_CHOICES = (
     (16, 'Educational Governance'),
 )
 
-BENCHMARK_CHOICES = (
+POST_SPECIALITY_CHOICES = (
     (0, 'General Practice'), 
     (1,'General psychiatry'),
     (2,'Acute Internal Medicine'), 
