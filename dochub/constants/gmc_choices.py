@@ -62,22 +62,22 @@ POST_SPECIALITY_CHOICES = (
     (26, 'Infectious diseases'),
     (27, 'Intensive care medicine'),
     (28, 'Interventional Radiology'),
-    (29, 'Medical microbiology',) 
+    (29, 'Medical microbiology'), 
     (30, 'Medical oncology'),
-    (31, 'Medical psychotherapy',) 
-    (32, 'Neonatal Medicine',) 
+    (31, 'Medical psychotherapy'), 
+    (32, 'Neonatal Medicine'), 
     (33, 'Neurology'),
-    (34, 'Neurosurgery',) 
+    (34, 'Neurosurgery'), 
     (35, 'Obstetrics and gynaecology'),
-    (36, 'Occupational medicine',) 
-    (37, 'Old age psychiatry',) 
+    (36, 'Occupational medicine'), 
+    (37, 'Old age psychiatry'), 
     (38, 'Ophthalmology'),
-    (39, 'Oral and maxillo-facial surgery',) 
+    (39, 'Oral and maxillo-facial surgery'), 
     (40, 'Otolaryngology'),
     (41, 'Paediatric Emergency Medicine'),
-    (42, 'Paediatric Intensive Care Medicine',) 
+    (42, 'Paediatric Intensive Care Medicine'), 
     (43, 'Paediatric Nephrology'),
-    (44, 'Paediatric Respiratory Medicine',) 
+    (44, 'Paediatric Respiratory Medicine'), 
     (45, 'Paediatric cardiology'),
     (46, 'Paediatric surgery'), 
     (47, 'Paediatrics'), 
@@ -91,8 +91,8 @@ POST_SPECIALITY_CHOICES = (
     (55, 'Sport and exercise medicine'),
     (56, 'Stroke Medicine'),
     (57, 'Trauma and orthopaedic surgery'), 
-    (58, 'Urology', 'Vascular surgery'),
-    (59, 'Allergy',) 
+    (58, 'Urology'),
+    (59, 'Allergy'), 
     (60, 'Clinical neurophysiology'),
     (61, 'Clinical pharmacology and therapeutics'), 
     (62, 'Hepatology'),
@@ -113,7 +113,7 @@ POST_SPECIALITY_CHOICES = (
     (77, 'Paediatric Gastroenterology, Hepatology and Nutrition'),
     (78, 'Paediatric Immunology, Infectious Diseases and Allergy'),
     (79, 'Paediatric Neurodisability'),
-     (80, 'Paediatric Palliative Medicine'),
+    (80, 'Paediatric Palliative Medicine'),
     (81, 'Forensic histopathology'),
     (82, 'Paediatric Inherited Metabolic Medicine'),
     (83, 'Paediatric Rheumatology'), 
@@ -135,4 +135,5 @@ POST_SPECIALITY_CHOICES = (
     (99, 'All Paediatrics and Child Health Posts'),
     (100, 'All Obstetrics and Gynaecology Posts'),
     (101, 'All Emergency Medicine Posts'),
+    (102, 'Vascular surgery')
 )
