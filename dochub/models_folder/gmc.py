@@ -1,12 +1,12 @@
 from django.contrib.gis.db import models
 
-from ..constants import INDICATOR_CHOICES, POST_SPECIALITY_CHOICES
+from ..constants import INDICATOR_CHOICES, POST_SPECIALITY_CHOICES, BENCHMARK_CHOICES
 
 class GMC(models.Model):
     deanery_code = models.CharField(max_length=3)
     deanery_name = models.CharField(max_length=100)
-    post_specialty = models.ChoicesField(choices=POST_SPECIALITY_CHOICES)
-    indicator = models.ChoicesField(choices=INDICATOR_CHOICES)
+    post_specialty = models.IntegerField(choices=POST_SPECIALITY_CHOICES, blank=True)
+    indicator = models.IntegerField(choices=INDICATOR_CHOICES, blank=True)
     year = models.IntegerField()
     outcome = models.CharField(max_length=100)
     response_rate = models.FloatField()
@@ -14,7 +14,7 @@ class GMC(models.Model):
     ci_lower = models.FloatField()
     ci_upper = models.FloatField()
     n = models.IntegerField()
-    benchmark_name = models.ChoicesField(choices=BENCHMARK_CHOICES)
+    benchmark_name = models.IntegerField(choices=BENCHMARK_CHOICES, blank= True)
     national_mean = models.FloatField()
     national_min = models.FloatField()
     national_Q1 = models.FloatField()

@@ -1,12 +1,11 @@
 from django.contrib import admin
 
-from .models import Trust, Organisation, NHSEnglandRegion, LondonBorough, LocalHealthBoard, IntegratedCareBoard, Country
+from .models import Trust, Organisation, NHSEnglandRegion, LondonBorough, LocalHealthBoard, IntegratedCareBoard, Country, GMC
 
 
 @admin.register(Trust)
 class TrustAdmin(admin.ModelAdmin):
     pass
-
 
 @admin.register(Organisation)
 class OrganistionAdmin(admin.ModelAdmin):
@@ -30,4 +29,8 @@ class IntegratedCareBoardAdmin(admin.ModelAdmin):
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(GMC)
+class GMCAdmin(admin.ModelAdmin):
     pass

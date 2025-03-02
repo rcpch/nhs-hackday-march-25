@@ -1,4 +1,5 @@
 from .country import Country
+from .gmc import GMC
 from .integrated_care_board import IntegratedCareBoard
 from .local_health_board import LocalHealthBoard
 from .london_borough import LondonBorough
