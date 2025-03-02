@@ -33,8 +33,13 @@
   <body id="root">
     {% csrf_token %}
     {% block nav %}
-      {% include 'navbar/nav.html' %}
+      {% include 'navbar/navdemo.html' %}
     {% endblock %}
+
+    {% block sidebar %}
+          {% include 'navbar/sidebarDemo.html' %}
+    {% endblock %}
+    
     {% block content %}{% endblock %}
     {% include 'navbar/footer.html' %}
   </body>
